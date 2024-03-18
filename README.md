@@ -141,3 +141,5 @@ STATUS: 301 Permanent Redirect
 
 ## Future Features
 1. Endpoints for batch URL requests. Allowing users to request a list of urls to be processed or returned. So they can be displayed on the app/site.
+2. Add payment tiers, so URLs can be kept for longer.
+3. Include load balancer when required.
