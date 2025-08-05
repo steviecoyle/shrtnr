@@ -1,10 +1,10 @@
-package com.scoyle.shrtnrjavaspring;
+package com.scoyle.shrtnr;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ShrtnrJavaSpringApplicationTests {
+class ShrtnrApplicationTests {
 
 	@Test
 	void contextLoads() {
