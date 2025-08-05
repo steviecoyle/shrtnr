@@ -1,4 +1,4 @@
-package com.scoyle.shrtnrjavaspring;
+package com.scoyle.shrtnr;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
