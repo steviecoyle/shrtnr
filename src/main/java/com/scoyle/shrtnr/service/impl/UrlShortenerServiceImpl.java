@@ -14,7 +14,7 @@ class UrlShortenerServiceImpl implements UrlShortenerService {
     private final ShortUrlRepository shortUrlRepository;
 
     @Override
-    public String getLongUrl(final String shortUrl) {
+    public String getLongUrl(final String code) {
         return "";
     }
 
