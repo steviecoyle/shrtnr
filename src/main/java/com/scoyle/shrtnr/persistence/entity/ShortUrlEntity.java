@@ -2,6 +2,8 @@ package com.scoyle.shrtnr.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SourceType;
 
 import java.util.Date;
 
@@ -14,9 +16,10 @@ public class ShortUrlEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String shortUrl;
+    private String code;
 
     private String longUrl;
 
-    private Date dateAdded;
+    @CreationTimestamp(source = SourceType.DB)
+    private Date created;
 }

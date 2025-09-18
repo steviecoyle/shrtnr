@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @Log4j2
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/")
+@RequestMapping()
 public class ShortUrlController {
 
     private final UrlShortenerService urlShortenerService;
@@ -20,7 +20,7 @@ public class ShortUrlController {
     public ResponseEntity<String> getLongUrl(@PathVariable String code) {
         log.info("GET /{}", code);
 
-        return new ResponseEntity<>(urlShortenerService.getLongUrl(code), HttpStatus.MOVED_PERMANENTLY);
+        return new ResponseEntity<>(urlShortenerService.getLongUrlByCode(code), HttpStatus.MOVED_PERMANENTLY);
     }
 
     @PostMapping
