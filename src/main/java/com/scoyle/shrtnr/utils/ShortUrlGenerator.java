@@ -1,33 +1,28 @@
 package com.scoyle.shrtnr.utils;
 
-import java.util.concurrent.atomic.AtomicLong;
+import java.security.SecureRandom;
 
 public class ShortUrlGenerator {
-
-    // The single instance of the class
-    private static final ShortUrlGenerator INSTANCE = new ShortUrlGenerator();
 
     private ShortUrlGenerator() {
         // singleton
     }
 
-    // Public method to provide global access to the single instance
-    public static ShortUrlGenerator getInstance() {
-        return INSTANCE;
-    }
-
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    private static final int BASE = ALPHABET.length();
-    private static final AtomicLong counter = new AtomicLong(1000000000L); // Start from a large number
+    private static final SecureRandom RANDOM = new SecureRandom();
 
-    public String encode() {
-        long id = counter.getAndIncrement();
-        StringBuilder sb = new StringBuilder();
-        while (id > 0) {
-            sb.append(ALPHABET.charAt((int) (id % BASE)));
-            id /= BASE;
+    /**
+     * Generates a random alphanumeric code of a specific length.
+     * @return A random String
+     */
+    public static String generateShortCode() {
+
+        StringBuilder code = new StringBuilder(7);
+        for (int i = 0; i < 7; i++) {
+            int randomIndex = RANDOM.nextInt(ALPHABET.length());
+            code.append(ALPHABET.charAt(randomIndex));
         }
 
-        return sb.reverse().toString();
+        return code.toString();
     }
 }
