@@ -1,0 +1,29 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="Create Shrtnr Table" author="Stephen Coyle">
+        <createTable tableName="Shrtnr">
+            <column type="BIGINT" name="Id" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column type="VARCHAR(10)" name="Code">
+                <constraints nullable="false" />
+            </column>
+            <column type="TEXT" name="LongUrl">
+                <constraints nullable="false" />
+            </column>
+            <column type="TIMESTAMP" name="Created" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="Create Code Column Index" author="Stephen Coyle">
+        <createIndex tableName="Shrtnr" indexName="idx_shrtnr_code">
+            <column name="Code" type="VARCHAR(10)" />
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>
